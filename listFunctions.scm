@@ -15,6 +15,13 @@
   )
 )
 
+(define (append list1 list2)
+  (cond 
+    ((null? (cdr list1)) (cons (car list1) list2))
+    (else (append (remove_last_element list1) (cons (last_element list1) list2)))
+  )
+)
+
 (define (append_lists a b)
   (cond 
         ((null? (cdr a)) (cons (car a) (next_cons b ())))
