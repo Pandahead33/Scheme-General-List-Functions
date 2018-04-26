@@ -46,3 +46,17 @@
     )
   )
 )
+
+(define (check element list count) 
+  (cond
+    ((null? (cdr list))
+              (cond
+                ((= (car list) element)(+ 1 count))
+                (else count)
+              )
+            
+            )
+    ((= (car list) element) (check element (cdr list) (+ 1 count)))
+    (check element (cdr list) count)
+  )
+)
