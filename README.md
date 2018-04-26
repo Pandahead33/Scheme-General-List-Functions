@@ -97,5 +97,19 @@ We already have a method for getting the last element. So if we can get the last
     Output:
     => (3 2 1)
 
+## Check Number of Elements in a List [there is a simple boolean contain function that I will upload later as well]
 
+    (define (check element list count) 
+      (cond
+        ((null? (cdr list))
+                  (cond
+                    ((= (car list) element)(+ 1 count))
+                    (else count)
+                  )
+
+                )
+        ((= (car list) element) (check element (cdr list) (+ 1 count)))
+        (check element (cdr list) count)
+      )
+    )
 
