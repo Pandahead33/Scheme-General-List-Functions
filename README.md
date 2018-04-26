@@ -1,4 +1,7 @@
 # Scheme Functions
+
+## Update: A ton of new functions coming through including some basic sorts, removing certain elements, contains, counts, etc. Stay tuned. They are already made. Message me if you need them for now. 
+
 ## 1. First Element
 
 To obtain the first element of a list, simply call car on it. 
@@ -27,6 +30,16 @@ To obtain the last element, we can recurse through the list until the next cdr w
 
 Appending two lists is not as simple as it may seem. Cons creates pairs not lists. Two lists (1 2 3) and (4 5 6) can be appended together in the following manner: 
 
+    [EDIT] Here is a much simpler version without a helper method
+    (define (append list1 list2)
+        (cond 
+            ((null? (cdr list1)) (cons (car list1) list2))
+            (else (append (remove_last_element list1) (cons (last_element list1) list2)))
+         )
+    )
+    
+    OLD VERSION
+    =============
     (define (next_cons a b) 
       (cond 
             ((null? a) ())
@@ -43,6 +56,9 @@ Appending two lists is not as simple as it may seem. Cons creates pairs not list
     
     Output:
     => (1 2 3 4 5 6)
+    
+    [
+
 
 I have found a slight error that lists of size one may not work. Will come back to this later. 
 
